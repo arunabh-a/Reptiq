@@ -1,6 +1,6 @@
-# reptiq
+# Reptiq - The Money Ledger
 
-A new Flutter project.
+A Flutter App for Money Ledger.
 
 ## Getting Started
 
