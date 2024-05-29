@@ -1,5 +1,5 @@
-// import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'dart:ui';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -9,115 +9,129 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
-  // final _formKey = GlobalKey<FormState>();
-  // final _emailController = TextEditingController();
-  // final _passwordController = TextEditingController();
-
   @override
   Widget build(BuildContext context) {
+    final screenWidth = MediaQuery.of(context).size.width;
+    final screenHeight = MediaQuery.of(context).size.height;
+
     return Scaffold(
-      body: Column(
-          children:[
+      body: SingleChildScrollView(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
             Container(
-              margin: const EdgeInsets.all(50.0),
-              width: 600,
-              child: const Column(
-                  children: [
-                    Text(
-                      'Reptiq',
-                      style: TextStyle(
-                        fontFamily: 'Arista',
-                        fontSize: 50,
-                        color: Color(0xFF1f4287),
-                      ),
+              margin: EdgeInsets.all(screenWidth * 0.1),
+              width: screenWidth * 0.8,
+              child: Column(
+                children: [
+                  Text(
+                    'Reptiq',
+                    style: TextStyle(
+                      fontFamily: 'Arista',
+                      fontSize: screenWidth * 0.1,
+                      color: const Color(0xFF1f4287),
                     ),
-                    Text(
-                      'x',
-                      style: TextStyle(
-                        fontFamily: 'Arista',
-                        fontSize: 50,
-                        color: Color(0xFF1f4287),
-                      ),
+                  ),
+                  Text(
+                    'x',
+                    style: TextStyle(
+                      fontFamily: 'Arista',
+                      fontSize: screenWidth * 0.1,
+                      color: const Color(0xFF1f4287),
                     ),
-                    Image(
-                      image: AssetImage('images/RNE-logo.png'),
-                      width: 300,
-                    ),
-                  ]),
+                  ),
+                  Image.asset(
+                    'images/RNE-logo.png',
+                    width: screenWidth * 0.6,
+                  ),
+                ],
+              ),
             ),
             Container(
-              margin: const EdgeInsets.only(top: 80.0),
-
-              color: const Color(0xFF071E3D),
+              height: screenHeight * 0.63,
+              width: screenWidth,
+              margin: EdgeInsets.only(top: screenHeight * 0.1),
+              decoration: const BoxDecoration(
+                color: Color(0xFF071E3D),
+                borderRadius: BorderRadius.only(
+                    topLeft: Radius.circular(60), topRight: Radius.circular(60)),
+              ),
               child: Column(
-                  children: [
-                    const Text(
-                      'LOGIN',
+                mainAxisAlignment: MainAxisAlignment.values[5],
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Text(
+                    'SIGN IN',
+                    style: TextStyle(
+                      fontFamily: 'EC-A',
+                      fontSize: screenWidth * 0.15,
+                      color: const Color(0xFFFFFFFF),
+                    ),
+                  ),
+                  Container(
+                    width: screenWidth - 50,
+                    height: screenHeight * 0.07,
+                    decoration: BoxDecoration(
+                      color: const Color(0xFF11405c),
+                      borderRadius: BorderRadius.circular(30),
+                    ),
+                    padding: const EdgeInsets.only(left: 20, right: 20),
+                    child: TextField(
                       style: TextStyle(
-                        fontFamily: 'Arista',
-                        fontSize: 80,
-                        color: Color(0xFFFFFFFF),
+                        color: const Color(0xFFFFFFFF),
+                        fontFamily: 'EC-A',
+                        fontSize: screenWidth * 0.04,
                       ),
-                    ),
-                    Container(
-                      decoration: BoxDecoration(
-                        color: const Color(0xFF11405c),
-                        borderRadius: BorderRadius.circular(30),
-                      ),
-                      margin: const EdgeInsets.all(10.0),
-                      padding: const EdgeInsets.only(left: 20, right: 20),
-                      child: const TextField(
-                        style: TextStyle(
-                          color: Color(0xFFFFFFFF),
-                          fontFamily: 'Euclid-Circular-A',
-                          fontSize: 20,
+                      decoration: InputDecoration(
+                        labelText: 'Username',
+                        labelStyle: TextStyle(
+                          color: const Color(0xFFFFFFFF),
+                          fontFamily: 'EC-A',
+                          fontSize: screenWidth * 0.05,
                         ),
-                        decoration: InputDecoration(
-                        labelText: 'USERNAME',
-                          labelStyle: TextStyle(
-                              color: Color(0xFFFFFFFF),
-                              fontFamily: 'Euclid-Circular-A',
-                              fontSize: 25,
-                          ),
-                        enabledBorder: UnderlineInputBorder(
+                        enabledBorder: const UnderlineInputBorder(
                           borderSide: BorderSide(width: 0),
                         ),
-                        focusedBorder: UnderlineInputBorder(
+                        focusedBorder: const UnderlineInputBorder(
                           borderSide: BorderSide(width: 0),
                         ),
                       ),
                     ),
+                  ),
+                  Container(
+                    width: screenWidth - 50,
+                    height: screenHeight * 0.07,
+                    decoration: BoxDecoration(
+                      color: const Color(0xFF11405c),
+                      borderRadius: BorderRadius.circular(30),
                     ),
-                    Container(
-                      decoration: BoxDecoration(
-                        color: const Color(0xFF11405c),
-                        borderRadius: BorderRadius.circular(30),
+                    padding: const EdgeInsets.only(left: 20, right: 20),
+                    child: TextField(
+                      style: TextStyle(
+                        color: const Color(0xFFFFFFFF),
+                        fontFamily: 'EC-A',
+                        fontSize: screenWidth * 0.04,
                       ),
-                      margin: const EdgeInsets.only(top: 10.0, left: 10.0, right: 10.0, bottom: 40.0),
-                      padding: const EdgeInsets.only(left: 20, right: 20),
-                      child: const TextField(
-                        decoration: InputDecoration(
-                          labelText: 'PASSWORD',
-                            labelStyle: TextStyle(
-                              color: Color(0xFFFFFFFF),
-                              fontFamily: 'Euclid-Circular-A',
-                              fontSize: 25,
-                            ),
-                          enabledBorder: UnderlineInputBorder(
-                            borderSide: BorderSide(width: 0),
-                          ),
-                          focusedBorder: UnderlineInputBorder(
-                            borderSide: BorderSide(width: 0),
-                          ),
+                      decoration: InputDecoration(
+                        labelText: 'Password',
+                        labelStyle: TextStyle(
+                          color: const Color(0xFFFFFFFF),
+                          fontFamily: 'EC-A',
+                          fontSize: screenWidth * 0.05,
                         ),
-
+                        enabledBorder: const UnderlineInputBorder(
+                          borderSide: BorderSide(width: 0),
+                        ),
+                        focusedBorder: const UnderlineInputBorder(
+                          borderSide: BorderSide(width: 0),
+                        ),
                       ),
-
                     ),
-                    SizedBox(
-                      height: 60,
-                      width: 300,
-                      child: ElevatedButton(
+                  ),
+                  SizedBox(
+                    height: 60,
+                    width: screenWidth * 0.6,
+                    child: ElevatedButton(
 
                       style: ButtonStyle(
 
@@ -135,18 +149,20 @@ class _LoginPageState extends State<LoginPage> {
                         // );
                       },
 
-                      child: const Text('SUBMIT',
+                      child: const Text('LOGIN',
                         style: TextStyle(
-                          fontFamily: 'Euclid-Circular-A',
+                          fontFamily: 'EC-A',
                           fontSize: 30,
                           color: Color(0xFFffffff),
                         ),
                       ),
                     ),
-                    ),
-                  ]),
+                  ),
+                ],
+              ),
             ),
-            ],
+          ],
+        ),
       ),
     );
   }

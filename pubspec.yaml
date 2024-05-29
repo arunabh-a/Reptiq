@@ -86,9 +86,9 @@ flutter:
 #        style: alternate
 #      - asset: fonts/Arista-Alternate-Full.ttf
 #        style: alternate-full
-   - family: Euclid-Circular-A
+   - family: EC-A
      fonts:
-       - asset: fonts/Euclid Circular A Bold.ttf
+       - asset: fonts/ECA-Bold.ttf
 #     - asset: fonts/TrajanPro_Bold.ttf
 #       weight: 700
   #
